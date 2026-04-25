@@ -81,7 +81,7 @@ export const integralsTopics: Topic[] = [
     ],
     problems: [
       { id: 'p39-1', question: '∫ eˢⁱⁿˣ cos(x) dx = ?', type: 'multiple-choice', choices: ['eˢⁱⁿˣ + C', 'eᶜᵒˢˣ + C', '-eˢⁱⁿˣ + C', 'sin(eˣ) + C'], correctAnswer: 'eˢⁱⁿˣ + C', explanation: 'u = sin x, du = cos x dx. ∫eᵘ du = eᵘ + C.', difficulty: 'beginner' },
-      { id: 'p39-2', question: '∫₀¹ 2x(x²+1)³ dx = ?', type: 'numeric', correctAnswer: '15', explanation: 'u = x²+1, du = 2x dx. Bounds: u(0)=1, u(1)=2. ∫₁² u³ du = [u⁴/4]₁² = 16/4 - 1/4 = 15/4. Wait: 16/4 - 1/4 = 15/4. Hmm, let me recompute: u⁴/4 from 1 to 2 = 16/4 - 1/4 = 15/4 = 3.75. So answer is 3.75.', difficulty: 'intermediate' },
+      { id: 'p39-2', question: '∫₀¹ 2x(x²+1)³ dx = ?', type: 'numeric', correctAnswer: '3.75', explanation: 'u = x²+1, du = 2x dx. Bounds: u(0)=1, u(1)=2. ∫₁² u³ du = [u⁴/4]₁² = 16/4 - 1/4 = 15/4 = 3.75.', difficulty: 'intermediate' },
     ],
   },
   {

@@ -39,7 +39,12 @@ export function useProgress() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
-        return JSON.parse(stored) as UserProgress;
+        const parsed = JSON.parse(stored) as UserProgress;
+        const { streakDays } = computeStreak(parsed.lastStudyDate);
+        if (streakDays === 0) {
+          parsed.streakDays = 0;
+        }
+        return parsed;
       } catch {
         return defaultProgress;
       }
