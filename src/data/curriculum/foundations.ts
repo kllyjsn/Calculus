@@ -1103,7 +1103,7 @@ export const foundationsTopics: Topic[] = [
         id: 'p15-2',
         question: 'Find f\'(2) for f(x) = (x³ - 8)/(x - 2) using the extended function.',
         type: 'numeric',
-        correctAnswer: '12',
+        correctAnswer: '6',
         explanation: 'f(x) = (x-2)(x²+2x+4)/(x-2) = x²+2x+4. f\'(x) = 2x+2. f\'(2) = 6.',
         hint: 'First simplify the function by factoring.',
         difficulty: 'intermediate',

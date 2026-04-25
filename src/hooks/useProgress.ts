@@ -65,7 +65,7 @@ export function useProgress() {
         completedDays,
         currentDay: Math.max(prev.currentDay, day + 1),
         lastStudyDate: today,
-        streakDays: isNewDay ? streakDays + 1 : prev.streakDays,
+        streakDays: isNewDay ? (streakDays > 0 ? prev.streakDays + 1 : 1) : prev.streakDays,
         masteryLevel: computeMasteryLevel(completedDays),
       };
     });
