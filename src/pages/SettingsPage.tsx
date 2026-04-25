@@ -22,7 +22,7 @@ export function SettingsPage() {
             <p>Days completed: {progress.completedDays.length}/90</p>
             <p>Current day: {progress.currentDay}</p>
             <p>Problems attempted: {Object.keys(progress.problemResults).length}</p>
-            <p>Study time: {Math.round(progress.totalTimeMinutes / 60)}h {progress.totalTimeMinutes % 60}m</p>
+            <p>Study time: {Math.floor(progress.totalTimeMinutes / 60)}h {progress.totalTimeMinutes % 60}m</p>
             <p>Mastery level: {progress.masteryLevel}</p>
           </div>
         </div>

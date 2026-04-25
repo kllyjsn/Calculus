@@ -40,7 +40,7 @@ export function Dashboard() {
         {[
           { icon: Flame, label: 'Streak', value: `${progress.streakDays} days`, color: 'text-secondary' },
           { icon: Target, label: 'Accuracy', value: `${accuracy}%`, color: 'text-accent' },
-          { icon: Clock, label: 'Study Time', value: `${Math.round(progress.totalTimeMinutes / 60)}h ${progress.totalTimeMinutes % 60}m`, color: 'text-info' },
+          { icon: Clock, label: 'Study Time', value: `${Math.floor(progress.totalTimeMinutes / 60)}h ${progress.totalTimeMinutes % 60}m`, color: 'text-info' },
           { icon: TrendingUp, label: 'Completed', value: `${progress.completedDays.length}/90`, color: 'text-primary-light' },
         ].map(({ icon: Icon, label, value, color }) => (
           <motion.div
