@@ -150,9 +150,23 @@ export function Lesson() {
   const phase = phases.find(p => p.id === topic?.phase);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      addStudyTime(1);
+    }, 60000);
     return () => {
-      const minutes = Math.round((Date.now() - startTime) / 60000);
-      if (minutes > 0) addStudyTime(minutes);
+      clearInterval(interval);
+      const elapsed = Math.round((Date.now() - startTime) / 60000);
+      const remaining = elapsed % 1;
+      if (remaining > 0) {
+        const raw = localStorage.getItem('calculus-mastery-progress');
+        if (raw) {
+          try {
+            const data = JSON.parse(raw);
+            data.totalTimeMinutes = (data.totalTimeMinutes ?? 0) + 1;
+            localStorage.setItem('calculus-mastery-progress', JSON.stringify(data));
+          } catch { /* ignore */ }
+        }
+      }
     };
   }, [startTime, addStudyTime]);
 

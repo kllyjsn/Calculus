@@ -105,7 +105,7 @@ export function Practice() {
         <Filter size={16} className="text-text-muted" />
         <select
           value={phaseFilter}
-          onChange={(e) => { setPhaseFilter(e.target.value); setCurrentIdx(0); }}
+          onChange={(e) => { setPhaseFilter(e.target.value); setCurrentIdx(0); setSelected(null); setNumericInput(''); setAnswered(false); }}
           className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm flex-1 min-w-[120px]"
         >
           <option value="all">All Phases</option>
@@ -113,7 +113,7 @@ export function Practice() {
         </select>
         <select
           value={difficultyFilter}
-          onChange={(e) => { setDifficultyFilter(e.target.value as Difficulty | 'all'); setCurrentIdx(0); }}
+          onChange={(e) => { setDifficultyFilter(e.target.value as Difficulty | 'all'); setCurrentIdx(0); setSelected(null); setNumericInput(''); setAnswered(false); }}
           className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm flex-1 min-w-[120px]"
         >
           <option value="all">All Difficulties</option>
@@ -123,7 +123,7 @@ export function Practice() {
           <option value="expert">Expert</option>
         </select>
         <button
-          onClick={() => { setShuffleSeed(s => s + 1); setCurrentIdx(0); }}
+          onClick={() => { setShuffleSeed(s => s + 1); setCurrentIdx(0); setSelected(null); setNumericInput(''); setAnswered(false); }}
           className="flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors"
         >
           <Shuffle size={14} /> Shuffle
