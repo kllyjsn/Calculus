@@ -155,17 +155,11 @@ export function Lesson() {
     }, 60000);
     return () => {
       clearInterval(interval);
-      const elapsed = Math.round((Date.now() - startTime) / 60000);
-      const remaining = elapsed % 1;
-      if (remaining > 0) {
-        const raw = localStorage.getItem('calculus-mastery-progress');
-        if (raw) {
-          try {
-            const data = JSON.parse(raw);
-            data.totalTimeMinutes = (data.totalTimeMinutes ?? 0) + 1;
-            localStorage.setItem('calculus-mastery-progress', JSON.stringify(data));
-          } catch { /* ignore */ }
-        }
+      const totalMs = Date.now() - startTime;
+      const recorded = Math.floor(totalMs / 60000);
+      const remainderMs = totalMs - recorded * 60000;
+      if (remainderMs > 10000) {
+        addStudyTime(1);
       }
     };
   }, [startTime, addStudyTime]);
