@@ -24,7 +24,7 @@ export function Curriculum() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-text-bright">Curriculum</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-text-bright">Curriculum</h1>
         <p className="text-text-muted mt-1">
           {allTopics.length} lessons across {phases.length} phases
         </p>
@@ -108,7 +108,7 @@ export function Curriculum() {
                       <h3 className="font-semibold text-text-bright truncate">{topic.title}</h3>
                       <p className="text-sm text-text-muted truncate">{topic.subtitle}</p>
                     </div>
-                    <div className="flex items-center gap-4 text-text-muted text-sm">
+                    <div className="hidden sm:flex items-center gap-4 text-text-muted text-sm">
                       <span className="flex items-center gap-1">
                         <Clock size={14} />
                         {topic.estimatedMinutes}m

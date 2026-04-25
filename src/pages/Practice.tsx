@@ -71,7 +71,7 @@ export function Practice() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-text-bright flex items-center gap-3">
+        <h1 className="text-2xl md:text-3xl font-bold text-text-bright flex items-center gap-3">
           <Trophy className="text-secondary" />
           Practice Mode
         </h1>
@@ -79,34 +79,34 @@ export function Practice() {
       </div>
 
       {/* Session Stats */}
-      <div className="flex gap-4">
-        <div className="bg-surface rounded-xl p-4 border border-surface-lighter flex-1">
-          <p className="text-xs text-text-muted">Session Score</p>
-          <p className="text-2xl font-bold text-text-bright">{sessionCorrect}/{sessionTotal}</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-surface rounded-xl p-4 border border-surface-lighter">
+          <p className="text-xs text-text-muted">Score</p>
+          <p className="text-xl md:text-2xl font-bold text-text-bright">{sessionCorrect}/{sessionTotal}</p>
         </div>
-        <div className="bg-surface rounded-xl p-4 border border-surface-lighter flex-1">
+        <div className="bg-surface rounded-xl p-4 border border-surface-lighter">
           <p className="text-xs text-text-muted">Accuracy</p>
-          <p className="text-2xl font-bold text-text-bright">
+          <p className="text-xl md:text-2xl font-bold text-text-bright">
             {sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0}%
           </p>
         </div>
-        <div className="bg-surface rounded-xl p-4 border border-surface-lighter flex-1">
-          <p className="text-xs text-text-muted">Problems Available</p>
-          <p className="text-2xl font-bold text-text-bright">{shuffledProblems.length}</p>
+        <div className="bg-surface rounded-xl p-4 border border-surface-lighter">
+          <p className="text-xs text-text-muted">Available</p>
+          <p className="text-xl md:text-2xl font-bold text-text-bright">{shuffledProblems.length}</p>
         </div>
-        <div className="bg-surface rounded-xl p-4 border border-surface-lighter flex-1">
-          <p className="text-xs text-text-muted">Lifetime Solved</p>
-          <p className="text-2xl font-bold text-text-bright">{Object.keys(progress.problemResults).length}</p>
+        <div className="bg-surface rounded-xl p-4 border border-surface-lighter">
+          <p className="text-xs text-text-muted">Lifetime</p>
+          <p className="text-xl md:text-2xl font-bold text-text-bright">{Object.keys(progress.problemResults).length}</p>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-3">
         <Filter size={16} className="text-text-muted" />
         <select
           value={phaseFilter}
           onChange={(e) => { setPhaseFilter(e.target.value); setCurrentIdx(0); }}
-          className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm"
+          className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm flex-1 min-w-[120px]"
         >
           <option value="all">All Phases</option>
           {phases.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
@@ -114,7 +114,7 @@ export function Practice() {
         <select
           value={difficultyFilter}
           onChange={(e) => { setDifficultyFilter(e.target.value as Difficulty | 'all'); setCurrentIdx(0); }}
-          className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm"
+          className="bg-surface border border-surface-lighter text-text-bright rounded-lg px-3 py-2 text-sm flex-1 min-w-[120px]"
         >
           <option value="all">All Difficulties</option>
           <option value="beginner">Beginner</option>

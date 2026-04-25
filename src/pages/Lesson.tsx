@@ -191,12 +191,12 @@ export function Lesson() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <Link to="/curriculum" className="flex items-center gap-2 text-text-muted hover:text-text transition-colors">
-          <ArrowLeft size={18} />
-          Curriculum
+      <div className="flex items-center justify-between gap-2">
+        <Link to="/curriculum" className="flex items-center gap-1 text-text-muted hover:text-text transition-colors text-sm">
+          <ArrowLeft size={16} />
+          <span className="hidden sm:inline">Curriculum</span>
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           {dayNum > 1 && (
             <Link to={`/lesson/${dayNum - 1}`} className="text-text-muted hover:text-text transition-colors text-sm">
               &larr; Day {dayNum - 1}
@@ -222,7 +222,7 @@ export function Lesson() {
           <span className="text-xs text-text-muted">{topic.difficulty}</span>
           {isCompleted && <span className="text-xs text-success flex items-center gap-1"><CheckCircle size={12} /> Completed</span>}
         </div>
-        <h1 className="text-3xl font-bold text-text-bright">{topic.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-text-bright">{topic.title}</h1>
         <p className="text-text-muted mt-1">{topic.subtitle}</p>
       </div>
 
@@ -246,7 +246,7 @@ export function Lesson() {
       {topic.keyFormulas.length > 0 && (
         <div className="bg-surface rounded-xl p-5 border border-surface-lighter">
           <h3 className="text-sm font-semibold text-text-bright mb-3">Key Formulas</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {topic.keyFormulas.map((f, i) => (
               <div key={i} className="bg-bg rounded-lg p-3">
                 <p className="text-xs text-text-muted mb-1">{f.name}</p>

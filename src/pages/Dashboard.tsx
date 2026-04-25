@@ -36,7 +36,7 @@ export function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {[
           { icon: Flame, label: 'Streak', value: `${progress.streakDays} days`, color: 'text-secondary' },
           { icon: Target, label: 'Accuracy', value: `${accuracy}%`, color: 'text-accent' },
@@ -53,7 +53,7 @@ export function Dashboard() {
               <Icon size={16} className={color} />
               <span className="text-xs text-text-muted uppercase tracking-wide">{label}</span>
             </div>
-            <p className="text-2xl font-bold text-text-bright">{value}</p>
+            <p className="text-xl md:text-2xl font-bold text-text-bright">{value}</p>
           </motion.div>
         ))}
       </div>
@@ -76,7 +76,7 @@ export function Dashboard() {
             className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
           />
         </div>
-        <div className="flex justify-between mt-3 text-xs text-text-muted">
+        <div className="hidden md:flex justify-between mt-3 text-xs text-text-muted">
           {phases.map(phase => (
             <span key={phase.id} style={{ color: phase.color }}>
               {phase.icon} {phase.name}
@@ -104,9 +104,9 @@ export function Dashboard() {
                 </span>
                 <span className="text-xs text-text-muted">~{currentTopic.estimatedMinutes} min</span>
               </div>
-              <h2 className="text-2xl font-bold text-text-bright mb-1">{currentTopic.title}</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-text-bright mb-1">{currentTopic.title}</h2>
               <p className="text-text-muted mb-4">{currentTopic.subtitle}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="hidden sm:flex flex-wrap gap-2 mb-4">
                 {currentTopic.keyFormulas.slice(0, 3).map((f, i) => (
                   <span key={i} className="bg-surface/50 px-3 py-1 rounded-lg text-sm">
                     <MathRenderer latex={f.latex} />
@@ -128,7 +128,7 @@ export function Dashboard() {
       {/* Phase Overview */}
       <div>
         <h2 className="text-lg font-semibold text-text-bright mb-4">Learning Phases</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {phases.map(phase => {
             const [start, end] = phase.days;
             const totalDays = end - start + 1;
